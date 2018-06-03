@@ -1,9 +1,8 @@
-# macgarage
+# LYRICS landingpage
 
-1. install ruby 
-2. install the following gems: sass, compass, slim via ´gem install *gem*´
+1. install ruby
+2. install the following gems: sass, compass, slim via ´gem install *nameofgem*´
 3. update your system via ´gem update --system´
-4. install node 
-5. install grunt via ´npm install grunt´
-6. type ´npm install´
-7. type ´grunt´
+4. install node in your favourite flavor
+5. type ´npm install´
+6. type ´grunt´
