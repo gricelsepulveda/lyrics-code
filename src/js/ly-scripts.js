@@ -1,4 +1,4 @@
-//SCROLL
+//SCROLL THIRDPARTY SOLUTION
 function no_scrollbody()
 {
     $html = $('html'); 

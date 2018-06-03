@@ -1,0 +1,94 @@
+@import "lyrics-font-variables";
+
+@font-face {
+  font-family: 'lyrics-font';
+  src:  url('#{$icomoon-font-path}/lyrics-font.eot?goslw5');
+  src:  url('#{$icomoon-font-path}/lyrics-font.eot?goslw5#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/lyrics-font.ttf?goslw5') format('truetype'),
+    url('#{$icomoon-font-path}/lyrics-font.woff?goslw5') format('woff'),
+    url('#{$icomoon-font-path}/lyrics-font.svg?goslw5#lyrics-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'lyrics-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ly-location {
+  &:before {
+    content: $ly-location; 
+  }
+}
+.ly-tel {
+  &:before {
+    content: $ly-tel; 
+  }
+}
+.ly-logo-cl {
+  &:before {
+    content: $ly-logo-cl; 
+  }
+}
+.ly-lyricscl {
+  &:before {
+    content: $ly-lyricscl; 
+  }
+}
+.ly-lyrics {
+  &:before {
+    content: $ly-lyrics; 
+  }
+}
+.ly-lyricslogo {
+  &:before {
+    content: $ly-lyricslogo; 
+  }
+}
+.ly-cart {
+  &:before {
+    content: $ly-cart; 
+  }
+}
+.ly-neumann {
+  &:before {
+    content: $ly-neumann; 
+  }
+}
+.ly-logo-macgarage {
+  &:before {
+    content: $ly-logo-macgarage; 
+  }
+}
+.ly-macgarage {
+  &:before {
+    content: $ly-macgarage; 
+  }
+}
+.ly-macgarage-apple {
+  &:before {
+    content: $ly-macgarage-apple; 
+  }
+}
+.ly-fb {
+  &:before {
+    content: $ly-fb; 
+  }
+}
+.ly-insta {
+  &:before {
+    content: $ly-insta; 
+  }
+}
+
