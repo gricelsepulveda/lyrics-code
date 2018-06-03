@@ -8,7 +8,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "^1.0.2",
-    "grunt-contrib-compass": "^1.0.0",
+    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^2.0.0",
@@ -19,11 +19,11 @@
     "grunt-slim": "^0.1.0"
   },
   "dependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^8.6.0",
     "cssnano": "^3.10.0",
     "g": "^2.0.1",
     "grunt-autoprefixer": "^3.0.4",
-    "grunt-http-server": "^2.0.0",
-    "http-server": "^0.10.0"
+    "grunt-http-server": "^2.1.0",
+    "http-server": "^0.11.1"
   }
 }

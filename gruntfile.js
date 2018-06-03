@@ -42,15 +42,16 @@ module.exports = function(grunt) {
           debugInfo: true
         },
         files: {
-          'dist/assets/styles/fontawesome-5.css': 'src/assets/styles/fontawesome-5.scss',
-          'dist/assets/styles/ly-styles.css': 'src/assets/styles/ly-styles.scss',
+          'dist/assets/styles/fontawesome-5.css.min': 'src/assets/styles/fontawesome-5.scss',
+          'dist/assets/styles/ly-styles.css.min': 'src/assets/styles/ly-styles.scss',
+          'dist/assets/styles/normalize.css.min': 'src/assets/styles/normalize.css'
         }
       }
     },
     autoprefixer:{
       dist:{
         files:{
-          'dist/assets/styles/ly-styles.css':'dist/assets/styles/ly-styles.css'
+          'dist/assets/styles/ly-styles.css.min':'dist/assets/styles/ly-styles.css.min'
         }
       }
     },
