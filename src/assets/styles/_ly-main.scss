@@ -1,0 +1,1317 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: black;
+  width: 100%;
+  position: relative;
+  .mg-center {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+  }
+}
+
+//ELEMENTS STYLES
+h1, h2, h3, h4, h5, h6, p, a, span {
+  @include zero-hard;
+  @include clean-webkit;
+  text-decoration: none;
+  line-height: auto;
+  color: initial;
+  &:hover, &:visited, &:focus, &:active {
+    @include zero-hard;
+    @include clean-webkit;
+    text-decoration: none;
+    line-height: auto;
+    color: initial;
+  }
+  &.white {
+    color: $white;
+  }
+  &.black {
+    color: $black;
+  }
+  &.highlight {
+    color: $color-2;
+  }
+  &.gray {
+    color: lighten($black, 20%);
+  }
+  &.note {
+    font: {
+      size: 10px;
+      style: italic;
+      weight: 300;
+    }
+  }
+}
+
+h1 {
+  font: {
+    size: 42px;
+    weight: 400;
+  }
+  &.up {
+    text-transform: uppercase;
+    font: {
+      size: 32px;
+      weight: 500;
+    }
+  }
+}
+
+h2 {
+  font: {
+    size: 16px;
+    weight: 400; 
+  }
+}
+
+h3 {
+  font: {
+    size: 14px;
+    weight: 400;
+  }
+}
+
+h4 {
+  font: {
+    size: 16px;
+    weight: 500;
+  }
+}
+
+p {
+  font: {
+    size: 12px;
+    weight: 400;
+  }
+}
+
+button.button {
+  @include clean-button;
+  border-radius: 3px;
+  padding: 10px 20px 10px 20px;
+  color: $white;
+  height: auto;
+  width: auto;
+  font: {
+    weight: 300;
+    size: 16px;
+  }
+  @include flex-row-center;
+  @include shadow;
+  @include animate;
+  cursor: pointer;
+  &:hover {
+    padding: 10px 20px 10px 20px!important;
+  }
+  &.normal {
+    @include bg-lighten($color-1);
+  }
+  &.highlight {
+    @include bg-lighten($color-2);
+  }
+}
+
+//NAVBAR
+.mg-top-navbar{
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 125px;
+  width: 100%;
+  max-width: 1600px;
+  background: {
+    image: url('../assets/img/bg-1.jpg');
+    size: 100% auto;
+    position: top;
+    repeat: no-repeat;
+  }
+  @media #{$xl}{
+    left: calc(50% - 800px);
+  }
+  // NOTCH IPHONE X
+  .mg-notch {
+    height: 48px;
+    .step {
+      width: 100%;
+      position: relative;
+      background-color: $black;
+      &.part-1, &.part-5 {
+        height: 12px;
+        width: 40%;
+        top: 0px;
+        position: absolute;
+      }
+      &.part-2 {
+        height: 40px;
+        width: 40px;
+        transform: rotate(44.05deg);
+        position: absolute;
+        left: calc(25% - 9px);
+        top: -11px;
+      }
+      &.part-3{
+        position: absolute;
+        height: 38px; 
+        width: calc(50% - 20px);
+        top: 0px;
+        left: calc(25% + 11px);
+      }
+      &.part-4 {
+        height: 40px;
+        width: 40px;
+        transform: rotate(44.05deg);
+        position: absolute;
+        right: calc(25% - 11px);
+        top: -11px;
+      }
+      &.part-5 {
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+  > .flex {
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    a.mg-logo-macgarage {
+      width: 22.5%;
+      position: relative;
+      @media #{$sm}{
+        width: auto;
+        height: 40px;
+      }
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+    // LOGOS NOTCH
+    > .flex {
+      width: 22.5%;
+      align-items: flex-end;
+      margin-top: 5px;
+      @media #{$sm} {
+        width: auto; 
+        position: absolute;
+        top: -15px;
+        right: calc(50% - 50px);
+        margin-top: 0px;
+      }
+      span.mg-span-lyrics {
+        display: inline-block;
+        font-size: 10px;
+        min-width: 90px;
+        padding-bottom: 5px!important;
+        @media #{$sm} {
+          display: none!important;
+        }
+      }
+      a.mg-logo-lyrics{
+        img {
+          width: 100%;
+          height: auto;
+          @media #{$sm} {
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+  // MENU
+  ul.mg-main-menu {
+    @include clean-list;
+    background-color: rgba($white, 0.25);
+    height: 30px;
+    width: 100%;
+    font: {
+      size: 13px;
+      weight: 300;
+    }
+    color: white;
+    text-transform: capitalize;
+    margin-top: 70px;
+    @media #{$sm}{
+      flex-direction: column;
+      &.active {
+        background-color: $black;
+        height: auto;
+        li.mg-menu-option {
+          display: inline-block;
+        }
+      }
+    }
+    li.mg-menu-option {
+      margin-right: 20px;
+      height: 30px;
+      cursor: pointer;
+      a {
+        color: inherit;
+        height: 100%;
+        display: inline-block;
+        line-height: 30px;
+      }
+      @media #{$sm}{
+        background-color: $black;
+        width: 100%;
+        display: none;
+        box-sizing: border-box;
+        text-align: center;
+        height: 32px;
+        margin-right: 0px;
+        border-bottom: 1px solid rgba($white, 0.125);
+        &:last-of-type{
+          border-bottom: 0px;
+        }
+      }
+    }
+  }
+  //TRIGGER MENU MOBILE
+  i.fas.fa-bars {
+    @media #{$sm}{
+      position: absolute;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      top: 37px;
+      font-size: 24px;
+      @include flex-col-center;
+      cursor: pointer;
+      color: $white;
+    }
+  }
+}
+
+// SECTION WELCOME
+section.mg-welcome {
+  background: {
+    image: url('../assets/img/bg-1.jpg');
+    size: 100% auto;
+    position: top; 
+    repeat: no-repeat;
+  }
+  @media #{$sm}{
+    background-size: auto 100%;
+  }
+  > .flex {
+    > img {
+      height: 400px;
+      margin-top: 125px;
+      @media #{$sm}{
+        margin-top: 0px;
+        display: none;
+      }
+    }
+    > .flex {
+      box-sizing: border-box;
+      padding: 30px;
+      align-self: stretch;
+      justify-content: center;
+      position: relative;
+      width: 60%;
+      @media #{$sm}{
+        width: 100%;
+        padding-bottom: 80px;
+        background: {
+          image: url('../assets/img/iphone-open.png');
+          size: auto 100%;
+          position: 100%; 
+          repeat: no-repeat;
+          color: rgba($black, 0.35);
+          blend-mode: multiply;
+        }
+      }
+      h1 {
+        &:first-of-type {
+          margin-top: 20px!important;
+          @media #{$sm}{
+            margin-top: 120px!important;
+            color: white;
+          }
+        }
+        @media #{$sm}{
+          color: white;
+        }
+      }
+      h2 {
+        margin-top: 20px!important;
+        @media #{$sm}{
+          color: $white;
+        }
+      }
+      button {
+        margin-top: 20px!important;
+        cursor: pointer;
+      }
+      span.note {
+        display: block;
+        text-align: center;
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+  }
+  nav.mg-quick-access {
+    background-color: $black;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px 10px 20px;
+    > .flex {
+      // PHONE
+      .mg-phone {
+        .mg-icon-access {
+          background: linear-gradient(180deg, lighten($color-5, 10%) 0%, $color-5 100%);
+        }
+        @media #{$sm}{
+          .flex {
+            h2, .flex a {
+              display: none;
+            }
+          }
+        }
+      }
+      // ADRESS
+      .mg-adress {
+        .mg-icon-access { 
+          background: linear-gradient(180deg, lighten($color-6, 10%) 0%, $color-6 100%);
+        }
+        @media #{$sm}{
+          > .flex {
+            h2 {
+              display: none;
+            }
+            .flex {
+              a {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      // MAIL
+      .mg-mail {
+        .mg-icon-access {
+          background: linear-gradient(180deg, lighten($color-7, 10%) 0%, $color-7 100%);
+        }
+        @media #{$sm}{
+          > .flex {
+            h2 {
+              display: none;
+            }
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+      .mg-phone, .mg-adress, .mg-mail {
+        .mg-icon-access {
+          width: 32px;
+          height: 32px;
+          border-radius: 4px;
+          @include flex-col-center;
+          margin-right: 10px;
+          img {
+            width: 18px;
+          }
+        }
+        .flex {
+          h2 {
+            font-size: 13px;
+          }
+          .flex {
+            a {
+              font: {
+                size: 12px;
+                weight: 300;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//SECTION SERVICES
+section.mg-services {
+  padding: 80px 30px 40px 30px;
+  // US SUBSECTION
+  .mg-us {
+    padding-bottom: 80px;
+    @media #{$sm}{
+      flex-direction: column;
+    }
+    > .flex {
+      width: 50%;
+      .flex {
+        h1 {
+          @media #{$sm}{
+            text-align: center;
+          }
+        }
+        h2 {
+          margin-top: 10px!important;
+          margin-bottom: 20px!important;
+          @media #{$sm}{
+            text-align: center;
+          }
+        }
+        p {
+          max-width: 400px;
+        }
+      }
+    }
+    > .row {
+      width: 50%;
+      > img {
+        width: 400px;
+        @media #{$sm}{
+          width: 250px;
+          margin-top: 80px;
+        }
+      }
+    }
+  }
+  // SERVICE SUBSECTION
+  ul.mg-service-list {
+    @include clean-list;
+    align-content: flex-start;
+    @media #{$sm}{
+      flex-direction: column;
+      @include clean-webkit;
+    }
+    li {
+      @include zero-hard;
+      align-self: stretch;
+      padding: 40px 20px 40px 20px;
+      background-color: rgba($black, 0.036125);
+      margin: 10px;
+      flex-basis: 220px;
+      @media #{$sm}{
+        align-self: initial;
+        padding: 0;
+        background-color: transparent;
+      }
+      .flex {
+        width: 64px;
+        height: 64px;
+        border-radius: 10px;
+        background-color: black;
+        img {
+          width: 48px;
+          height: auto;
+        }
+      }
+      h4 {
+        margin-top: 20px!important;
+        margin-bottom: 10px!important;
+      }
+      &.diagnosis {
+        .flex {
+          background: linear-gradient(180deg, darken($color-1, 10%) 0%, $color-4 100%);
+        }
+      }
+      &.check {
+        .flex {
+          background: linear-gradient(180deg, lighten($color-5, 10%) 0%, $color-5 100%);
+        }
+      }
+      &.delivery {
+        .flex {
+          background: linear-gradient(180deg, $color-2 0%, $color-3 100%);
+        }
+      }
+      &.fix {
+        .flex {
+          background: linear-gradient(180deg, lighten($color-6, 10%) 0%, $color-6 100%);
+        }
+      }
+      &.upgrade {
+        .flex {
+          background: linear-gradient(180deg, lighten($color-6, 10%) 0%, $color-8 100%);
+        }
+      }
+    }
+  }
+  button.button {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+}
+
+//SECTION DEVICES
+section.mg-devices {
+  width: 100%;
+  background: linear-gradient(45deg, $color-2 0%, $color-3 100%);
+  padding: 40px 30px 40px 30px;
+  @media #{$sm}{
+    padding: 0px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    h1 {
+      font-size: 28px;
+    }
+  }
+  ul.mg-devices-list {
+    @include clean-list;
+    flex-basis: 220px;
+    align-items: flex-end!important;
+    margin-top: 40px;
+    @media #{$sm}{
+      flex-direction: column;
+      @include clean-webkit;
+      justify-content: center!important;
+      align-items: center!important;
+      margin-top: 80px!important;
+    }
+    li {
+      @include zero-hard;
+      margin: 20px!important;
+      @media #{$sm}{
+        margin: 0px!important;
+        margin-bottom: 40px!important;
+        &:last-of-type {
+          margin-bottom: 0px!important;
+        }
+      }
+      a {
+        h2 {
+          margin-top: 10px!important;
+        }
+        img {
+          @media #{$sm}{
+            max-width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//SECTION RATE & FEEDBACK
+section.mg-rate-feedback {
+  padding: 80px 30px 80px 30px;
+  @media #{$sm}{
+    flex-direction: column!important;
+    justify-content: center!important;
+    padding: 0;
+    padding-top: 80px;
+    box-sizing: border-box;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  > .flex {
+    width: 50%;
+    @media #{$sm}{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    p {
+      max-width: 400px;
+      margin-top: 20px!important;
+      margin-bottom: 40px!important;
+      @media #{$sm}{
+        max-width: auto;
+      }
+    }
+    button.button {
+      cursor: pointer;
+      @media #{$sm}{
+        margin-bottom: 80px;
+      }
+    }
+  }
+  .flex-quote {
+    width: 50%;
+    @media #{$sm}{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .col {
+      width: 80%;
+      blockquote.mg-quote {
+        background-color: $color-4;
+        font-size: 13px;
+        color: $white;
+        text-align: justify;
+        @include clean-webkit;
+        padding: 20px!important;
+        border-radius: 15px;
+        max-width: 350px;
+        position: relative;
+        @media #{$sm}{
+          text-align: center;
+        }
+        &:after {
+          content: '';
+          width: 0; 
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          position: absolute;
+        }
+      }
+      &:nth-of-type(1) {
+        blockquote {
+          &:before {
+            content: '';
+            background-image: url('../assets/img/mg-heart.svg');
+            background-size: cover;
+            background-position: center;
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            left: -60px;
+            top: -10px;
+          }
+          &:after {
+            border-left: 10px solid $color-4;
+            right: -9px;
+            top: 50px;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        blockquote {
+          background-color: lighten($black, 90%);
+          color: $black;
+          &:before {
+            content: '';
+            background-image: url('../assets/img/mg-haha.svg');
+            background-size: cover;
+            background-position: center;
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            right: -60px;
+            top: -10px;
+          }
+          &:after {
+            border-right: 10px solid lighten($black, 90%);
+            left: -9px;
+            top: 30px;
+          }
+        }
+      }
+      &:nth-of-type(3) {
+        blockquote {
+          &:after {
+            border-left: 10px solid $color-4;
+            right: -9px;
+            top: 20px;
+          }
+        }
+      }
+      p {
+        &.text-left {
+          margin-left: 40px!important;
+        }
+        &.text-right {
+          margin-right: 40px!important;
+        }
+      }
+    }
+  }
+}
+
+//FIXES
+section.mg-fixes {
+  padding: 80px 30px 80px 30px;
+  box-sizing: border-box;
+  background: {
+    image: url('../assets/img/bg-2.jpg');
+    size: cover;
+    position: top;
+    repeat: no-repeat;
+  }
+  h1 {
+    margin-bottom: 40px!important;
+  }
+  .mg-instagram-panel {
+    width: 390px;
+    height: 390px;
+    background-color: white;
+    overflow: hidden;
+    @media #{$sm}{
+      width: 250px;
+      height: 250px;
+    }
+  }
+  button.button {
+    margin-top: 40px;
+  }
+}
+
+//FOOTER
+
+footer {
+  background-color: black;
+  padding: 30px 30px 30px 30px;
+  box-sizing: border-box;
+  @media #{$sm}{
+    flex-direction: column!important;
+    justify-content: center!important;
+  }
+  > .flex {
+    @media #{$sm}{
+      align-items: center!important;
+    }
+    p {
+      margin-bottom: 10px!important;
+    }
+    a {
+      color: $white;
+      width: 28px;
+      height: 28px;
+      @include flex-row-center;
+      i {
+        font-size: 24px;
+      }
+      &:first-of-type {
+        margin-right: 10px!important;
+      }
+    }
+  }
+  .flex.col.end {
+    span {
+      margin-bottom: 5px!important;
+      font-style: normal;
+      a {
+        width: auto!important;
+        margin-right: 0!important;
+        height: auto!important;
+      }
+    }
+  }
+  a.mg-logo-macgarage {
+    margin-left: 100px!important;
+    img {
+      width: 200px;
+    }
+    @media #{$sm}{
+      margin-left: 0px!important;
+      margin-bottom: 20px!important;
+      margin-top: 20px!important;
+    }
+  }
+}
+
+//SECTION DEVICE PAGE
+section.mg-device-page {
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, $color-2 0%, $color-3 100%);
+  padding: 180px 30px 40px 30px;
+  min-height: calc(100vh - 123px); 
+  //background-image: url('../assets/img/bg-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  // US SUBSECTION
+  .mg-device-detail {
+    padding-bottom: 80px;
+    box-sizing: border-box;
+    min-height:  calc(100vh - 123px - 210px); 
+    @media #{$sm}{
+      flex-direction: column!important;
+      justify-content: center!important;
+    }
+    > .flex {
+      width: 50%;
+      @media #{$sm}{
+        width: 100%;
+      }
+      .flex {
+        h1 {
+          @media #{$sm}{
+            text-align: center;
+          }
+        }
+        h2 {
+          margin-top: 10px!important;
+          margin-bottom: 20px!important;
+          @media #{$sm}{
+            text-align: center;
+          }
+        }
+        p {
+          max-width: 400px;
+          @media #{$sm}{
+            text-align: center;
+          }
+        }
+        button {
+          margin-top: 40px!important;
+          width: 120px;
+          cursor: pointer;
+          @media #{$sm}{
+            display: block;
+            margin: 0 auto!important;
+            margin-top: 40px!important;
+            margin-bottom: 80px!important;
+          }
+        }
+      }
+    }
+    > .row {
+      width: 50%;
+      > img {
+        width: 100px;
+        &.mg-img-ipad {
+          width: 200px;
+        }
+        &.mg-img-macbook {
+          width: 300px;
+        }
+        &.mg-img-imac {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
+
+//MODAL CONTACT
+
+.mg-modal-display {
+  background-color: rgba($black, 0.75);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  .mg-modal-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    .mg-modal {
+      border-radius: 4px;
+      background: {
+        image: url('../assets/img/bg-2.jpg');
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+      }
+      position: relative;
+      padding: 20px;
+      min-width: 70vw;
+      min-height: 70vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      @media #{$sm}{
+        max-width: 90vw;
+      }
+      > i {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: $white;
+        cursor: pointer;
+      }
+      form {
+        padding-top: 40px;
+        .mg-form-item {
+          margin-bottom: 10px;
+          width: 300px;
+          position: relative;
+          @media #{$sm}{
+            width: 250px;
+          }
+          &:after {
+            position: absolute;
+            content: '';
+            width: 32px;
+            height: 32px;
+            border-radius: 32px;
+            background: {
+              color: $color-1;
+              repeat: no-repeat;
+              position: center;
+              size: 18px 18px;
+            }
+            top: 8px;
+            left: 8px;
+          }
+          &:nth-child(1){
+            height: 48px;
+            &:before {
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              border-radius: 32px;
+              height: 48px;
+              width: 300px;
+              padding: 10px 10px 10px 10px;
+              box-sizing: border-box;
+              content: '';
+              background-color: $white;
+              @media #{$sm}{
+                width: 250px;
+              }
+            }
+            > select {
+              background:  transparent;
+              background-color: transparent;
+              position: absolute;
+              z-index: 1;
+              top: 0px;
+              left: 0px;
+              width: calc(300px - 20px);
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              @media #{$sm}{
+                width: calc(250px - 20px);
+              }
+              &::-ms-expand{
+                display: none;
+              }
+              content: '';
+              &:after {
+                content:''
+              }
+              &:before {
+                content: '';
+              }
+            }
+            &:after {
+              background-image: url('../assets/img/mg-caret.svg');
+              transform: rotate(-90deg);
+              right: 8px!important;
+              left: inherit;
+            }
+          }
+          &:nth-child(2){
+            &:after {
+              background-image: url('../assets/img/mg-user.svg');
+            }
+          }
+          &:nth-child(3){
+            &:after {
+              background-image: url('../assets/img/mg-mail-mini.svg');
+            }
+          }
+          &:nth-child(4){
+            &:after {
+              background-image: url('../assets/img/mg-message.svg');
+            }
+          }
+          > * {
+            width: 100%;
+            height: 48px;
+            padding: 10px 10px 10px 50px;
+            font-size: 13px;
+            font-weight: 300;
+            box-sizing: border-box;
+            border-radius: 30px;
+            border: none;
+            @include text-overflow;
+          }
+          textarea {
+            height: 120px;
+            border-radius: 20px;
+            padding-top: 18px; 
+          }
+        }
+        button {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+.mg-modal-faq {
+  background-color: white;
+  position: relative;
+  width: 640px;
+  border-radius: 4px;
+  overflow: hidden;
+  max-height: 90vh;
+  padding: 52px 20px 20px 20px;
+  box-sizing: border-box;
+  @media #{$sm}{
+    max-width: 90vw;
+  }
+  h1 {
+    background-color: $color-1;
+    width: 100%;
+    height: 32px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font: {
+      size: 16px;
+      weight: 300;
+    }
+    text-transform: uppercase;
+    @include flex-col-center;
+  }
+  i {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    color: $white;
+    cursor: pointer;
+  }
+  .mg-faq-container {
+    height: calc(90vh - 52px - 20px);
+    width: calc(100%);
+    overflow-y: scroll;
+    box-sizing: border-box;
+    padding: 10px;
+    ul.mg-faq-list {
+      @include clean-list;
+      @include zero-hard;
+      @include clean-webkit;
+      li.mg-faq-item {
+        @include zero-hard;
+        @include clean-webkit;
+        padding-bottom: 40px!important;
+        h5.mg-h5 {
+          font: {
+            size: 14px;
+            weight: 500;
+          }
+          color: $color-1;
+          padding-bottom: 5px!important;
+        }
+        p.mg-p {
+          text-align: justify;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+//MODAL VENUE
+
+.mg-modal.mg-modal-venue {
+  background-image: url('../assets/img/bg-1.jpg')!important;
+  @media #{$sm}{
+    max-width: 90vw!important;
+    min-width: 90vw!important;
+  }
+  h1 {
+    margin-bottom: 40px!important;
+  }
+  > .flex {
+    align-content: stretch;
+    align-items: flex-start;
+    @media #{$sm}{
+     align-items: center;
+     align-content: center;
+     flex-direction: column!important;
+    }
+    > a.flex {
+      margin: 10px!important;
+      .mg-venue-picture {
+        width: 175px;
+        height: 175px;
+        border-radius: 175px;
+        background-color: $black;
+        margin-bottom: 10px;
+        overflow: hidden;
+        @media #{$sm}{
+          width: 75px;
+          height: 75px;
+          border-radius: 75px;
+        }
+      }
+      &:nth-of-type(1){
+        .mg-venue-picture {
+          background: {
+            image: url('../assets/img/nunoa-photo.jpg');
+            size: cover;
+            repeat: no-repeat;
+            position: center;
+          }
+        }
+      }
+      &:nth-of-type(2){
+        .mg-venue-picture {
+          background: {
+            image: url('../assets/img/providencia-photo.jpg');
+            size: cover;
+            repeat: no-repeat;
+            position: center;
+          }
+        }
+      }
+      &:nth-of-type(3){
+        .mg-venue-picture {
+          background: {
+            image: url('../assets/img/logo-macgarage-light.svg');
+            size: 120px auto;
+            repeat: no-repeat;
+            position: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+//SECTION VENUE PAGE
+section.mg-venue-page {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 0px;
+  min-height: calc(100vh - 123px); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media #{$sm}{
+    height: auto;
+    padding-bottom: 40px;
+  }
+  >.flex.row {
+    height: calc(100vh - 123px);
+    box-sizing: border-box;
+    //background: linear-gradient(45deg, $color-2 0%, $color-3 100%);
+    @media #{$sm}{
+      height: auto;
+    }
+    > .flex.col {
+      width: 50%;
+      box-sizing: border-box;
+      height: 100%;
+      padding-top: 163px;
+      padding-left: 30px;
+      padding-right: 30px;
+      @media #{$sm}{
+        width: 100%;
+      }
+      > .flex.row {
+        //align-items: flex-end;
+        @media #{$sm}{
+          flex-direction: column!important;
+          align-content: center!important;
+          align-items: center!important;
+        }
+        .mg-venue-photo-container {
+          min-width: 150px;
+          min-height: 150px;
+          max-width: 150px;
+          max-height: 150px;
+          height: 150px;
+          width: 150px;
+          border-radius: 150px;
+          overflow: hidden;
+          margin-right: 10px;
+          > img {
+            width: 150%;
+            height: auto;
+          }
+        }
+        > .flex {
+          @media #{$sm}{
+            justify-content: center!important;
+            align-content: center!important;
+            align-items: center!important;
+          }
+          h1 {
+            @media #{$sm}{
+              justify-content: center!important;
+              align-content: center!important;
+              align-items: center!important;
+              text-align: center;
+            }
+          }
+        }
+      }
+      .mg-venue-data {
+        margin-top: 20px;
+        font-size: 14px;
+        @media #{$sm}{
+          justify-content: center!important;
+          align-content: center!important;
+          align-items: center!important;
+        }
+        span {
+          font-weight: 500;
+          font-size: 16px;
+          margin-top: 10px;
+        }
+        .flex.row.start {
+          margin-bottom: 20px;
+          @media #{$sm}{
+            justify-content: center!important;
+            align-content: center!important;
+            align-items: center!important;
+            flex-direction: column!important;
+          }
+          .mg-icon-venue {
+            background-color: $color-5;
+            width: 32px;
+            height: 32px;
+            @include flex-row-center;
+            border-radius: 4px;
+            margin-right: 10px;
+            @media #{$sm}{
+              margin-right: 0px;
+              margin-bottom: 10px;
+            }
+            img {
+              width: 18px;
+            }
+          }
+          &:last-of-type{
+            margin-bottom: 0px;
+            .mg-icon-venue {
+              background-color: $color-6;
+            }
+          }
+        }
+      }
+    }
+    > .row {
+      width: 50%;
+      height: 100%;
+      background: {
+        blend-mode: soft-light;
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+      }
+      @media #{$sm}{
+        display: none;
+      }
+      &.mg-lo-barnechea {
+        background-image: url('../assets/img/nunoa-map.png');
+      }
+      &.mg-nunoa {
+        background-image: url('../assets/img/nunoa-map.png');
+      }
+      &.mg-nunoa {
+        background-image: url('../assets/img/providencia-map.png');
+      }
+    }
+  }
+}
