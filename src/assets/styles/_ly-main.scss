@@ -12,5 +12,129 @@ body {
   max-width: 1600px;
   margin: 0 auto;
   display: block;
-  background-color: pink;
+  position: relative;
+  background: $white;
+}
+
+//QUICKNAV
+nav.ly-quick-nav{
+  background-color: $black;
+  height: 32px;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 1;
+  a {
+    @include flex-row-center;
+    color: $white;
+    @include zero-hard;
+    height: 100%;
+    font: {
+      family: 'Lato', 'Arial', sans-serif;
+      size: 12px;
+      weight: 300;
+    }
+    text-decoration: none;
+    @include animate;
+    &:focus, &:hover, &:active {
+      text-decoration: none;
+      color: white;
+    }
+    &:visited {
+      color: white;
+      text-decoration: none;
+    }
+    i {
+      font-size: 16px;
+    }
+    i.ly-location, i.ly-tel {
+      margin-right: 5px;
+    }
+    i.ly-tel {
+      margin-left: 10px;
+    }
+    i.ly-cart {
+      background-color: $white;
+      margin-left: 5px;
+      color: $black;
+      width: 32px;
+      height: 32px;
+      @include flex-row-center;
+    }
+  }
+  a.ly-link-store{
+    text-transform: uppercase;
+    &:focus, &:hover, &:active {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+// MAINNAV
+nav.ly-main-nav {
+  @include zero-hard;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: fixed;
+  top: 32px;
+  left: 0;
+  height: 48px;
+  overflow: hidden;
+  background: rgba($white, 0.25);
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 1;
+  i.ly-logo-cl {
+    font-size: 180px;
+    color: $white;
+  }
+  a {
+    padding-left: 20px;
+    padding-right: 20px;
+    font: {
+      family: 'Saira Extra Condensed', 'Arial Narrow', 'Helvetica', sans-serif;
+      size: 15px;
+      weight: 300;
+    }
+    text: {
+      transform: uppercase;
+      decoration: none;
+      align: center;
+    }
+    border-right: 1px solid rgba($white, 0.25);
+    color: $white;
+    &:last-of-type{
+      border-right: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+// HOME
+section.ly-section-home {
+  height: 630px;
+  overflow: hidden;
+  padding-top: 80px;
+  box-sizing: border-box;
+  position: relative;
+  background: {
+    image: url(../img/bg-red.jpg);
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  }
+  .ly-bg-triangle {
+    width: 1200px;
+    height: 1200px;
+    transform: rotate(45deg);
+    background-color: $black;
+    position: absolute;
+    right: -600px;
+    top: -600px;
+  }
 }

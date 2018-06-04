@@ -5,6 +5,12 @@ module.exports = function(grunt) {
         files: [
           { //IMAGES
             expand: true,
+            cwd: 'src',
+            src: ['favicon.svg'],
+            dest: 'dist'
+          },
+          { //IMAGES
+            expand: true,
             cwd: 'src/assets/img',
             src: ['{,*/}*'],
             dest: 'dist/assets/img'
@@ -45,7 +51,7 @@ module.exports = function(grunt) {
           'dist/assets/styles/fontawesome-5.min.css': 'src/assets/styles/fontawesome-5.scss',
           'dist/assets/styles/lyrics-font.min.css': 'src/assets/styles/lyrics-font.scss',
           'dist/assets/styles/ly-styles.min.css': 'src/assets/styles/ly-styles.scss',
-          'dist/assets/styles/normalize.min.css': 'src/assets/styles/normalize.css'
+          'dist/assets/styles/normalize.min.css': 'src/assets/styles/normalize.css',
         }
       }
     },

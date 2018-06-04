@@ -13,7 +13,7 @@ html lang="es"
     /! FONT AWESOME
     link rel="stylesheet" href="assets/styles/fontawesome-5.min.css" type="text/css"
     /! LYRICS FONT
-    link rel="stylesheet" href="assets/styles/fontawesome-5.min.css"
+    link rel="stylesheet" href="assets/styles/lyrics-font.min.css"
     /! STYLES 
     link rel="stylesheet" href="assets/styles/ly-styles.min.css" type="text/css"
     /! JQUERY
@@ -25,6 +25,35 @@ html lang="es"
     /! SCRIPTS 
     script src="js/ly-scripts.min.js"
     /! FAVICON
-    link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg"
+    link rel="icon" type="image/svg+xml" href="favicon.svg"
   body
-    .ly-body-wrapper hola mundo
+    .ly-body-wrapper
+
+      /! QUICKNAV
+      nav.ly-quick-nav.flex.row.between
+        .flex.row.start
+          a href="https://goo.gl/maps/eXznkxqsngx" target="_blank"
+            i.ly-location
+            | Nancy #570 - Ñuñoa
+          a href="tel:+56225023258" target="_blank"
+            i.ly-tel
+            | 22 5023258
+        a.ly-link-store href=""
+          | Ir a la tienda
+          i.ly-cart 
+      
+      /! MAINNAV
+      nav.ly-main-nav.flex.row.between
+        i.ly-logo-cl
+        .flex.row.end
+          a href="#home" Inicio
+          a href="#us" Conócenos
+          a href="#brands" Marcas
+          a href="#57proaudio" 57Pro Audio
+          a href="#macgarage" Macgarage
+          a href="#linkstore" Vísitanos
+
+      /! HOME
+      section#home.ly-section-home
+        .ly-bg-triangle
+
