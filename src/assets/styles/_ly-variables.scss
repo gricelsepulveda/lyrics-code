@@ -2,6 +2,9 @@
 $black: #0F0606;
 $white: #F9F4F4;
 $color-1: #803527;
+$color-2: #0B0F2B;
+$color-3: #10142F;
+$color-4: #D4D0D0;
 
 //BREAKPOINTS
 $xs: "(max-width: 340px)";
@@ -31,6 +34,6 @@ $lg-abs: "(min-width: 992px) and (max-width: 1199px)";
   background: $white;
 }
 ::-webkit-scrollbar-thumb {
-  background: $color-1;
+  background: lighten(black, 10%);
   @include animate;
 }

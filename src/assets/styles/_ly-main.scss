@@ -6,6 +6,16 @@ body {
   position: relative;
   background: $black;
   background-color: $black;
+  //ANTIALIASING TRICKS
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
 .ly-body-wrapper {
@@ -13,7 +23,8 @@ body {
   margin: 0 auto;
   display: block;
   position: relative;
-  background: $white;
+  background: $black;
+  overflow: hidden;
 }
 
 //QUICKNAV
@@ -27,7 +38,7 @@ nav.ly-quick-nav{
   left: 0px;
   box-sizing: border-box;
   width: 100%;
-  z-index: 1;
+  z-index: 20;
   a {
     @include flex-row-center;
     color: $white;
@@ -36,7 +47,7 @@ nav.ly-quick-nav{
     font: {
       family: 'Lato', 'Arial', sans-serif;
       size: 12px;
-      weight: 300;
+      weight: 400;
     }
     text-decoration: none;
     @include animate;
@@ -51,10 +62,10 @@ nav.ly-quick-nav{
     i {
       font-size: 16px;
     }
-    i.ly-location, i.ly-tel {
+    i.ly-location, i.ly-phone {
       margin-right: 5px;
     }
-    i.ly-tel {
+    i.ly-phone {
       margin-left: 10px;
     }
     i.ly-cart {
@@ -88,9 +99,11 @@ nav.ly-main-nav {
   background: rgba($white, 0.25);
   box-sizing: border-box;
   width: 100%;
-  z-index: 1;
-  i.ly-logo-cl {
+  z-index: 20;
+  i.ly-lyrics-logo {
+    font-family: 'lyrics-font'!important;
     font-size: 180px;
+    font-style: normal;
     color: $white;
   }
   a {
@@ -115,18 +128,32 @@ nav.ly-main-nav {
   }
 }
 
-// HOME
-section.ly-section-home {
-  height: 630px;
-  overflow: hidden;
-  padding-top: 80px;
-  box-sizing: border-box;
-  position: relative;
+@mixin ly-common-bg {
   background: {
     image: url(../img/bg-red.jpg);
     size: cover;
     repeat: no-repeat;
     position: center;
+  }
+}
+
+// HOME
+section.ly-section-home {
+  height: 630px;
+  overflow: hidden;
+  padding-top: 60px;
+  box-sizing: border-box;
+  position: relative;
+  @include ly-common-bg;
+  &:after {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-bottom: 40px solid $black;
+    border-left: 100vw solid transparent;
   }
   .ly-bg-triangle {
     width: 1200px;
@@ -136,5 +163,778 @@ section.ly-section-home {
     position: absolute;
     right: -600px;
     top: -600px;
+  }
+  //FIXED TITLE
+  h1.ly-home-h1 {
+    font: {
+      family: 'Lato', sans-serif!important;
+      weight: 900!important;
+    }
+    text-transform: uppercase;
+    position: absolute;
+    color: $white;
+    left: calc(50% - 175px);
+    top: calc(50% - 80px);
+    width: 350px;
+    height: 100px;
+    z-index: 10;
+    .ly-container {
+      position: relative;
+      span {
+        position: absolute;
+        &:nth-of-type(1){
+          font-size: 58px;
+          top: 9px;
+          left: 0px;
+        }
+        &:nth-of-type(2){
+          font-size: 47px;
+          top: 32px;
+          left: -37px;
+        }
+        &:nth-of-type(3){
+          font-size: 54px;
+          top: 60px;
+          right: 0px;
+        }
+      }
+    }
+  }
+  // BANNER HOME
+  ul.ly-banner-home {
+    @include clean-list;
+    @include zero-soft;
+    @include clean-webkit;
+    height: 100%;
+    li.ly-banner-home-slide {
+      height: 100%;
+      &.ly-home-slide-00 {
+        img {
+          position: absolute;
+          width: 100%;
+          height: auto;
+          top: -10%;
+          left: 0px; 
+        }
+      }
+      .ly-slide-caption {
+        bottom: 60px;
+        right: 0px;
+        width: 350px;
+        h2.ly-h2 {
+          @include clean-webkit;
+          padding-left: 50px!important;
+          padding-right: 165px!important;
+          &:before {
+            width: 40px;
+            left: 0px;
+            top: 18px;
+          }
+          &:after {
+            content: '';
+            width: 155px;
+            right: 0px;
+            top: 18px;
+          }
+        }
+        p.ly-p-2 {
+          padding-right: 40px!important;
+        }
+      }
+    }
+  }
+}
+
+section.ly-articles-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  &:after {
+    content:'';
+    position: absolute;
+    right: 0px;
+    bottom: -40px;
+    border-top: 40px solid rgba($black, 0.5);
+    border-right: 100vw solid transparent;
+    height: 0;
+    width: 0px;
+    z-index: 2;
+  }
+  article.ly-article-home {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    background: {
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+    }
+    h2 {
+      @include zero-soft;
+      @include clean-webkit;
+      position: absolute;
+      text: {
+        align: right;
+        transform: uppercase;
+      }
+      font: {
+        family: 'Lato', sans-serif;
+        size: 24px;
+        weight: 900;
+      }
+      color: white;
+      bottom: 20px;
+      right: 20px;
+    }
+    &:before {
+      content:'';
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      border-bottom: 150px solid rgba($black, 0.5);
+      border-left: 100px solid transparent;
+      border-right: 0px solid transparent;
+      height: 0;
+      width: 100px;
+    }
+    &:nth-of-type(1){
+      background-image: url('./../img/article-home-00.jpg');
+    }
+    &:nth-of-type(2){
+      background-image: url('./../img/article-home-01.jpg');
+      background-position: center 30%;
+    }
+    &:nth-of-type(3){
+      background-image: url('./../img/article-home-02.jpg');
+      background-position: center 20%;
+    }
+  }
+}
+
+// GENERIC CAPTION
+.ly-slide-caption {
+  color: $white;
+  position: absolute;
+  width: 350px;
+  h2.ly-h2 {
+    @include clean-webkit;
+    display: inline-block;
+    font: {
+      family: 'Saira Extra Condensed', 'Arial Narrow', 'Helvetica', sans-serif;
+      size: 24px;
+      weight: 300;
+    }
+    text-transform: uppercase;
+    position: relative;
+    &:before {
+      content: '';
+      height: 2px;
+      position: absolute;
+      left: 0px;
+      top: 18px;
+      background-color: $white;
+      display: inline-block;
+    }
+    &:after {
+      content: '';
+      height: 2px;
+      position: absolute;
+      right: 0px;
+      top: 18px;
+      background-color: $white;
+      display: inline-block;
+    }
+  }
+  p.ly-p-2 {
+    @include clean-webkit;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    font: {
+      family: 'Saira Extra Condensed', 'Arial Narrow', 'Helvetica', sans-serif;
+      size: 16px;
+      weight: 300;
+    }
+    text-align: justify;
+  }
+  a.ly-a-button {
+    border: 0;
+    color: inherit;
+    button {
+      color: white;
+      border-radius: 0px;
+      border: 2px solid $color-1;
+      background: transparent;
+      cursor: pointer;
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+      padding: 5px 10px 5px 10px;
+      letter-spacing: 1px;
+      font: {
+        family: 'Saira Extra Condensed', 'Arial Narrow', 'Helvetica', sans-serif;
+        size: 18px;
+        weight: 400;
+      }
+      @include animate;
+      &:hover {
+        background: rgba($white, 0.25);
+      }
+      &.ly-color-2 {
+        border: 2px solid lighten($color-2, 20%);
+      }
+    }
+  }
+}
+
+// SECTION 
+section.ly-section {
+  position: relative;
+  // LEFT
+  &.left {
+    .ly-part-a-section {
+      width: 100%;
+      padding-bottom: 200px;
+      .ly-img-logo-section, i {
+        width: 80%;
+        margin-top: 200px;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .ly-slide-caption {
+        left: 0px;
+        bottom: 40px;
+        h2.ly-h2 {
+          padding-left: 40px!important;
+        }
+        p.ly-p-2 {
+          padding-left: 40px!important;
+        }
+        a.ly-a-button {
+          margin-left: 40px;
+        }
+      }
+    }
+    .ly-part-b-section {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      img.ly-section-product-img {
+        height: 400px;
+        width: auto;
+      }
+    }
+  }
+  //RIGHT
+  &.right {
+    .ly-part-a-section {
+      width: 100%;
+      img.ly-section-product-img {
+        left: calc(25% - 175px);
+        width: auto;
+        height: 500px;
+        bottom: 0px;
+        z-index: 2;
+        position: absolute;
+      }
+    }
+    .ly-part-b-section {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      padding-bottom: 200px;
+      .ly-img-logo-section, i {
+        margin-top: 200px;
+        margin-right: calc(50% - 100px);
+        margin-bottom: 40px;
+        position: relative;
+        font-size: 200px;
+        color: $white;
+      }
+      .ly-slide-caption {
+        right: 0px;
+        bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        p.ly-p-2 {
+          padding-right: 40px!important;
+          text-align: right;
+        }
+        a.ly-a-button {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+  //DIAMOND
+  &#diamond {
+    background: {
+      color: $black;
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+      image: url(../img/bg-red.jpg);
+    }
+    .ly-part-a-section {
+      .ly-slide-caption {
+        h2.ly-h2 {
+          padding-right: 183px!important;
+          &:before {
+            width: 30px;
+          }
+          &:after {
+            width: 173px;
+          }
+        }
+      }
+    }
+    .ly-part-b-section {
+      img.ly-section-product-img {
+        position: absolute;
+        height: 600px;
+        left: calc(50% - 216px);
+        top: -240px;
+        z-index: 2;
+      }
+    }
+    &:after {
+      content:'';
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      border-bottom: 40px solid $color-3;
+      border-left: 100vw solid transparent;
+      height: 0;
+      width: 0px;
+    }
+  }
+  //NEUMANN 
+  &#neumann{
+    background: {
+      color: $color-2;
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+      image: url(../img/musicboard-lyrics.jpg);
+      blend-mode: screen;
+    }
+    margin-bottom: 40px;
+    z-index: 1;
+    &:after {
+      content:'';
+      position: absolute;
+      left: 0px;
+      bottom: -40px;
+      border-top: 40px solid $color-3;
+      border-right: 100vw solid transparent;
+      height: 0;
+      width: 0px;
+    }
+    .ly-part-b-section {
+      .ly-slide-caption {
+        width: 430px;
+        h2.ly-h2 {
+          padding-right: 40px!important;
+          padding-left: 51px!important;
+          &:before {
+            width: 44px;
+          }
+          &:after {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+  //SE ELECTRONICS
+  &#se-electronics {
+    background: {
+      color: $black;
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+      image: url(../img/bg-black.jpg);
+    }
+    z-index: 1;
+    .ly-part-a-section {
+      .ly-slide-caption {
+        h2.ly-h2 {
+          padding-right: 183px!important;
+          &:before {
+            width: 30px;
+          }
+          &:after {
+            width: 173px;
+          }
+        }
+      }
+    }
+    .ly-part-b-section {
+      img.ly-section-product-img {
+        position: absolute;
+        height: 400px;
+        left: calc(50% - 260px);
+        top: -210px;
+        z-index: 2;
+      }
+    }
+    &:after {
+      display: none;
+    }
+  }
+  //GLYPH
+  &#glyph{
+    margin-top: -40px;
+    background: {
+      color: $white;
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+      image: url(../img/fog.jpg);
+      blend-mode: multiply;
+    }
+    padding-top: 40px;
+    .ly-part-a-section {
+      img.ly-section-product-img {
+        left: calc(50% - 300px);
+        height: 600px;
+      }
+    }
+    .ly-part-b-section {
+      img.ly-img-logo-section {
+        width: 350px;
+        margin-right: 40px;
+      }
+      .ly-slide-caption {
+        width: 430px;
+        color: $black;
+        h2.ly-h2 {
+          padding-right: 40px!important;
+          padding-left: 51px!important;
+          &:before {
+            width: 44px;
+            background-color: $black;
+          }
+          &:after {
+            width: 30px;
+            background-color: $black;
+          }
+        }
+        button.ly-color-2 {
+          border: 2px solid $black;
+          &:hover {
+            border: 2px solid lighten(black, 10%);
+          }
+        }
+      }
+    }
+  }
+  //OWC
+  &#owc {
+    background: {
+      color: $white;
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+      image: url(../img/fog-2.jpg);
+    }
+    .ly-part-a-section {
+      .ly-slide-caption {
+        color: $black;
+        h2.ly-h2 {
+          padding-right: 183px!important;
+          &:before {
+            width: 30px;
+            background-color: $black;
+          }
+          &:after {
+            width: 173px;
+            background-color: $black;
+          }
+        }
+        button.ly-color-2 {
+          border: 2px solid $black;
+          &:hover {
+            border: 2px solid lighten(black, 10%);
+          }
+        }
+      }
+    }
+    .ly-part-b-section {
+      img.ly-section-product-img {
+        position: absolute;
+        height: 400px;
+        left: calc(50% - 260px);
+        top: -210px;
+        z-index: 2;
+      }
+    }
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// SOCIAL
+
+section#brands {
+  padding-top: 120px;
+  margin-top: -40px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  height: 600px;
+  max-height: 600px;
+  min-height: 600px;
+  @include ly-common-bg;
+  position: relative;
+  z-index: 0;
+  &:before {
+    content:'';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-bottom: 40px solid rgba($black, 0.5);
+    border-left: 100vw solid transparent;
+    height: 0;
+    width: 0px;
+  }
+  h3.ly-section-brands-h3 {
+    @include clean-webkit;
+    @include zero-hard;
+    font: {
+      family: 'Lato', 'Arial Black', sans-serif;
+      weight: 900;
+    }
+    text-transform: uppercase;
+    position: absolute;
+    display: block;
+    height: 150px;
+    width: 350px;
+    color: white;
+    top: 80px;
+    left: calc(50% - 175px)!important;
+    .ly-container {
+      position: relative;
+      height: 100%;
+      span {
+        position: absolute;
+        &:nth-of-type(1) {
+          font-size: 58px;
+          text-align: center;
+          top: 0px;
+          left: 20px;
+        }
+        &:nth-of-type(2) {
+          font-size: 32px;
+          text-align: left;
+          left: 0px;
+          top: 55px;
+        }
+        &:nth-of-type(3) {
+          font-size: 54px;
+          text-align: left;
+          right: 0px;
+          bottom: 12px;
+        }
+      }
+    }
+  }
+  // ROTATOR
+  ul.ly-brands-rotator {
+    @include clean-webkit;
+    @include clean-list;
+    @include zero-hard;
+    width: 50%;
+    position: relative;
+    margin-top: 140px!important;
+    li.ly-slide-brand-rotator {
+      width: 100%;
+      a {
+        display: inline-block;
+        margin-right: 40px;
+        color: $white;
+        text-decoration: none;
+        @include animate;
+        &:hover, &:focus, &:visited, &:active {
+          color: $white;
+          text-decoration: none;
+          article.ly-brand-item {
+            .ly-brand {
+              width: 170px;
+              height: 170px;
+            }
+            h4.ly-brand-h4 {
+              color: $white;
+              text-decoration: none;
+            }
+          }
+        }
+        &:last-of-type {
+          margin-right: 0px;
+        }
+        article.ly-brand-item {
+          @include animate;
+          .ly-brand {
+            width: 150px;
+            height: 150px;
+            background: {
+              color: $white;
+              size: 60%;
+              repeat: no-repeat;
+              position: center;
+            }
+            border-radius: 100%;
+            margin-bottom: 20px;
+            @include animate;
+          }
+          h4.ly-brand-h4 {
+            font: {
+              family: 'Saira Extra Condensed', 'Arial Narrow', 'Helvetica', sans-serif;
+              size: 21px;
+              weight: 300;
+            }
+            color: $white;
+            text: {
+              align: center;
+              transform: capitalize;
+              decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  nav.ly-rotator-brand-controls {
+    position: absolute;
+    left: calc(50% - 65px);
+    bottom: 30px;
+    button.ly-rotator-brand-button{
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: 0;
+      border: 2px solid $color-1;
+      cursor: pointer;
+      @include animate;
+      margin-right: 20px;
+      &:last-of-type{
+        margin-right: 0px;
+      }
+      &:hover, &.active {
+        border: 2px solid lighten($color-1, 10%);
+        background: rgba($white, 0.25);
+      }
+    }
+  }
+}
+
+section#social {
+  padding-top: 40px;
+  padding-bottom: 120px;
+  background: {
+    image: url('../img/bg-black.jpg');
+    position: center;
+    size: cover;
+    repeat: no-repeat;
+  }
+  position: relative;
+  &:before {
+    content:'';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top: 40px solid rgba($black, 0.5);
+    border-right: 100vw solid transparent;
+    height: 0;
+    width: 0px;
+  }
+  .ly-section-social-instagram {
+    margin-top: 60px;
+    width: 450px;
+    @media #{$sm}{
+      width: 300px;
+    }
+  }
+}
+
+footer#footer.ly-footer {
+  background-color: lighten(black, 10%);
+  padding: 20px 40px 25px 40px;
+  .start {
+    position: relative;
+    i {
+      color: $white;
+      font-size: 200px;
+      margin-top: -87px;
+      margin-bottom: -117px;
+      line-height: 0;
+    }
+    span {
+      position: absolute;
+      left: 0px;
+      top: 31px;
+      color: $white;
+      font: {
+        family: 'Lato', sans-serif;
+        size: 14px;
+        weight: 400;
+      }
+      text: {
+        align: left;
+        transform: uppercase;
+      }
+    }
+  }
+  .end {
+    .row {
+      a {
+        color: $white;
+        text-decoration: none;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-content: center;
+        align-items: center;
+        @include animate;
+        &:visited, &:active {
+          color: $white;
+          text-decoration: none;
+          i {
+            color: $white;
+          }
+        }
+        &:hover, &:focus{
+          color: $color-1;
+          text-decoration: none;
+          i {
+            color: $color-1;
+          }
+        }
+        i {
+          color: $white;
+          font-size: 24px;
+        }
+        span {
+          margin-left: 5px;
+          display: inline-block;
+          font: {
+            family: 'Lato', sans-serif;
+            size: 14px;
+            weight: 400;
+          }
+          text: {
+            align: right;
+            transform: capitalize;
+          }
+        }
+      }
+    }
   }
 }

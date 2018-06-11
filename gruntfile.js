@@ -49,7 +49,7 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/assets/styles/fontawesome-5.min.css': 'src/assets/styles/fontawesome-5.scss',
-          'dist/assets/styles/lyrics-font.min.css': 'src/assets/styles/lyrics-font.scss',
+          'dist/assets/styles/lyrics-font.min.css': 'src/assets/styles/lyrics-font.css',
           'dist/assets/styles/ly-styles.min.css': 'src/assets/styles/ly-styles.scss',
           'dist/assets/styles/normalize.min.css': 'src/assets/styles/normalize.css',
         }

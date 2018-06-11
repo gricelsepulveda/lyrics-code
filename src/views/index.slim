@@ -24,6 +24,8 @@ html lang="es"
     script src="js/smooth-scroll.min.js"
     /! SCRIPTS 
     script src="js/ly-scripts.min.js"
+    /! INSTAGRAM
+    script src="https://snapwidget.com/js/snapwidget.js"
     /! FAVICON
     link rel="icon" type="image/svg+xml" href="favicon.svg"
   body
@@ -36,7 +38,7 @@ html lang="es"
             i.ly-location
             | Nancy #570 - Ñuñoa
           a href="tel:+56225023258" target="_blank"
-            i.ly-tel
+            i.ly-phone
             | 22 5023258
         a.ly-link-store href=""
           | Ir a la tienda
@@ -44,7 +46,7 @@ html lang="es"
       
       /! MAINNAV
       nav.ly-main-nav.flex.row.between
-        i.ly-logo-cl
+        i.ly-lyrics-logo
         .flex.row.end
           a href="#home" Inicio
           a href="#us" Conócenos
@@ -56,28 +58,154 @@ html lang="es"
       /! HOME
       section#home.ly-section-home
         .ly-bg-triangle
+        h1.ly-home-h1
+          .ly-container
+            span Música
+            span &
+            span Tecnología
         ul.ly-banner-home
           /! SLIDE #1
           li.ly-banner-home-slide.ly-home-slide-00
-            img src="./assest/img/ly-home-slide-00.png" alt="rock"
-            caption.ly-slide-caption
+            img src="./assets/img/ly-home-slide-00.png" alt="rock"
+            .ly-slide-caption
               h2.ly-h2 Somos gama alta
               p.ly-p-2 En LYRICS encontrarás marcas de alta calidad para tus proyectos de  música, audio, tecnología y soporte de confianza para tus equipos Apple.
               a.ly-a-button href="#"
                 button type="button" Conócenos
           /! SLIDE #2
           li.ly-banner-home-slide.ly-home-slide-01.display-none
-            img src="./assest/img/ly-home-slide-01.png" alt="audio"
-            caption.ly-slide-caption
+            img src="./assets/img/ly-home-slide-01.png" alt="audio"
+            .ly-slide-caption
               h2.ly-h2 Lorem ipusm
               p.ly-p-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               a.ly-a-button href="#"
                 button type="button" Lorem ipsum
           /! SLIDE #3
           li.ly-banner-home-slide.ly-home-slide-03.display-none
-            img src="./assest/img/ly-home-slide-03.png" alt="tecnologia"
-            caption.ly-slide-caption
+            img src="./assets/img/ly-home-slide-03.png" alt="tecnologia"
+            .ly-slide-caption
               h2.ly-h2 Lorem ipusm
               p.ly-p-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               a.ly-a-button href="#"
                 button type="button" Lorem ipsum
+
+      /! ARTICLES HOME
+      section.ly-articles-home
+        article.ly-article-home
+          h2.h2-article-home Instrumentos
+        article.ly-article-home
+          h2.h2-article-home 57 Pro Audio
+        article.ly-article-home
+          h2.h2-article-home Tech / Macgarage
+      
+      /! SECTION LEFT
+      section#diamond.ly-section.left.flex.row.between
+        .flex.row.start.ly-part-a-section
+          img.ly-img-logo-section src="./assets/img/logo-diamond.png" alt="logo diamond"
+          .ly-slide-caption
+            h2.ly-h2 Marca exclusiva
+            p.ly-p-2 Sólo en LYRICS encontrarás las aclamadas guitarras Diamond.  Alcanza el sonido que buscas con nuestra amplia selección de bajos, sintetizadores, efectos y amplificadores.
+            a.ly-a-button href="#"
+              button type="button" Ver modelos
+        .flex.row.center.ly-part-b-section
+          img.ly-section-product-img src="./assets/img/diamond-guitar.gif" alt="guitar diamond"
+      
+      /! SECTION RIGHT
+      section#neumann.ly-section.right.flex.row.between
+        .flex.row.center.ly-part-a-section
+          img.ly-section-product-img src="./assets/img/neumann-microphone.gif" alt="neumann-microphone"
+        .flex.row.end.ly-part-b-section
+          i.ly-neumann
+          .ly-slide-caption
+            h2.ly-h2 Representante oficial de Neumann en Chile
+            p.ly-p-2 57 Pro Audio ofrece lo mejor en monitores de sonido y micrófonos de alta gama. Consigue un sonido profesional de verdad.
+            a.ly-a-button href="#"
+              button.ly-color-2 type="button" Ver productos
+        
+      /! SECTION LEFT
+      section#se-electronics.ly-section.left.flex.row.between
+        .flex.row.start.ly-part-a-section
+          img.ly-img-logo-section src="./assets/img/se-logo.png" alt="logo se-electronics"
+          .ly-slide-caption
+            h2.ly-h2 Sólo en Lyrics
+            p.ly-p-2 Disfruta de gran calidad al alcance de tu presupuesto gracias a sE Electronics. Líderes en alta definición de sonido a un costo acotado.
+            a.ly-a-button href="#"
+              button type="button" Ver disponibles
+        .flex.row.center.ly-part-b-section
+          img.ly-section-product-img src="./assets/img/se-electronics.png" alt="se microphone"
+
+      /! SECTION RIGHT
+      section#glyph.ly-section.right.flex.row.between
+        .flex.row.center.ly-part-a-section
+          img.ly-section-product-img src="./assets/img/glyph-hand.png" alt="glyph ssd disk"
+        .flex.row.end.ly-part-b-section
+          img.ly-img-logo-section src="./assets/img/logo-glyph.png" alt="logo glyph"
+          .ly-slide-caption
+            h2.ly-h2  Más velocidad para tu creatividad
+            p.ly-p-2 Representantes oficiales de los discos más rápidos y confiables del mercado. Lleva contigo todos tus proyectos multimedia. 
+            a.ly-a-button href="#"
+              button.ly-color-2 type="button" Ir a la tienda
+      
+      /! SECTION LEFT
+      section#owc.ly-section.left.flex.row.between
+        .flex.row.start.ly-part-a-section
+          img.ly-img-logo-section src="./assets/img/owc-logo.png" alt="logo owc"
+          .ly-slide-caption
+            h2.ly-h2 Estándar Internacional OWC
+            p.ly-p-2 Reparamos y upgradeamos equipos Apple con componentes OWC. Sello de calidad internacional, componentes certificados por Apple, encuéntralos en Lyrics
+            a.ly-a-button href="#"
+              button type="button" Catálogo OWC
+        .flex.row.center.ly-part-b-section
+          img.ly-section-product-img src="./assets/img/owc-motherboard.png" alt="owc motherboard"
+      
+      /! SECTION BRANDS
+      section#brands.ly-section.flex.col.center
+        h3.ly-section-brands-h3
+          .ly-container
+            span Descubre
+            span nuestras
+            span marcas
+        ul.ly-brands-rotator
+          li.ly-slide-brand-rotator.flex.row.center
+            a href="#" target="_blank"
+              article.ly-brand-item.flex.col.center
+                .ly-brand
+                h4.ly-brand-h4 Nombre marca
+            a href="#" target="_blank"
+              article.ly-brand-item.flex.col.center
+                .ly-brand
+                h4.ly-brand-h4 Nombre marca
+            a href="#" target="_blank"
+              article.ly-brand-item.flex.col.center
+                .ly-brand
+                h4.ly-brand-h4 Nombre marca
+        nav.ly-rotator-brand-controls.flex.row.center
+          button.ly-rotator-brand-button.active
+          button.ly-rotator-brand-button
+          button.ly-rotator-brand-button
+      
+      /! SECTION SOCIAL
+      section#social.ly-section.flex.col.center
+        .ly-section-social-instagram
+          iframe.snapwidget-widget src="https://snapwidget.com/embed/556889" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"
+      
+      /! FOOTER
+      footer#footer.ly-footer
+        .flex.col.start
+          i.ly-lyrics-cl      
+          span.ly-subt-logo Música & Tecnología
+        .flex.row.end
+          .flex.row.end
+            a.ly-facebook-link href="https://www.facebook.com/lyricsmusictech/" target="_blank"
+              i.ly-facebook
+          .flex.row.end
+            a.ly-instagram-link href="https://www.facebook.com/lyricsmusictech/" target="_blank"
+              i.ly-instagram
+          .flex.row.end
+            a.ly-location-link href="https://goo.gl/maps/4BUSSN6ukQL2" target="_blank"
+              i.ly-location
+              span Nancy #570 - Ñuñoa
+          .flex.row.end
+            a.ly-phone-link href="tel:+56225023258" target="_blank"
+              i.ly-phone
+              span 22 502 32 58
