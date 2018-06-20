@@ -39,6 +39,10 @@ nav.ly-quick-nav{
   box-sizing: border-box;
   width: 100%;
   z-index: 20;
+  @media #{$xl}{
+    width: 1600px;
+    left: calc(50vw - 800px);
+  }
   a {
     @include flex-row-center;
     color: $white;
@@ -100,6 +104,10 @@ nav.ly-main-nav {
   box-sizing: border-box;
   width: 100%;
   z-index: 20;
+  @media #{$xl}{
+    width: 1600px;
+    left: calc(50vw - 800px);
+  }
   i.ly-lyrics-logo {
     font-family: 'lyrics-font'!important;
     font-size: 180px;
@@ -250,7 +258,7 @@ section.ly-section-home {
           }
         }
         p.ly-p-2 {
-          padding-right: 40px!important;
+          padding-right: 80px!important;
         }
       }
     }
@@ -414,7 +422,7 @@ section.ly-section {
       .ly-img-logo-section, i {
         width: 80%;
         margin-top: 200px;
-        margin-left: 40px;
+        margin-left: 80px;
         margin-bottom: 40px;
         position: relative;
       }
@@ -422,13 +430,13 @@ section.ly-section {
         left: 0px;
         bottom: 40px;
         h2.ly-h2 {
-          padding-left: 40px!important;
+          padding-left: 90px!important;
         }
         p.ly-p-2 {
-          padding-left: 40px!important;
+          padding-left: 90px!important;
         }
         a.ly-a-button {
-          margin-left: 40px;
+          margin-left: 90px;
         }
       }
     }
@@ -475,11 +483,11 @@ section.ly-section {
         flex-direction: column;
         align-items: flex-end;
         p.ly-p-2 {
-          padding-right: 40px!important;
+          padding-right: 80px!important;
           text-align: right;
         }
         a.ly-a-button {
-          margin-right: 40px;
+          margin-right: 80px;
         }
       }
     }
@@ -496,12 +504,13 @@ section.ly-section {
     .ly-part-a-section {
       .ly-slide-caption {
         h2.ly-h2 {
-          padding-right: 183px!important;
+          padding-right: 133px!important;
           &:before {
-            width: 30px;
+            width: 80px;
           }
           &:after {
-            width: 173px;
+            width: 124px;
+            right: 0px;
           }
         }
       }
@@ -552,15 +561,19 @@ section.ly-section {
       .ly-slide-caption {
         width: 430px;
         h2.ly-h2 {
-          padding-right: 40px!important;
-          padding-left: 51px!important;
+          padding-right: 80px!important;
+          padding-left: 5px!important;
           &:before {
-            width: 44px;
+            width: 40px;
+            left: -44px;
           }
           &:after {
-            width: 30px;
+            width: 70px;
           }
         }
+      }
+      p.ly-p-2{
+        max-width: 348px;
       }
     }
   }
@@ -577,12 +590,12 @@ section.ly-section {
     .ly-part-a-section {
       .ly-slide-caption {
         h2.ly-h2 {
-          padding-right: 183px!important;
+          padding-right: 153px!important;
           &:before {
-            width: 30px;
+            width: 80px;
           }
           &:after {
-            width: 173px;
+            width: 144px;
           }
         }
       }
@@ -614,27 +627,29 @@ section.ly-section {
     padding-top: 40px;
     .ly-part-a-section {
       img.ly-section-product-img {
-        left: calc(50% - 300px);
+        left: 154px;
         height: 600px;
+        top: 80px;
+        transform: rotate(90deg);
       }
     }
     .ly-part-b-section {
       img.ly-img-logo-section {
         width: 350px;
-        margin-right: 40px;
+        margin-right: 80px;
       }
       .ly-slide-caption {
         width: 430px;
         color: $black;
         h2.ly-h2 {
-          padding-right: 40px!important;
-          padding-left: 51px!important;
+          padding-right: 80px!important;
+          padding-left: 53px!important;
           &:before {
             width: 44px;
             background-color: $black;
           }
           &:after {
-            width: 30px;
+            width: 70px;
             background-color: $black;
           }
         }
@@ -655,25 +670,40 @@ section.ly-section {
       repeat: no-repeat;
       size: cover;
       image: url(../img/fog-2.jpg);
+      blend-mode: multiply;
     }
+    min-height: 550px;
+    max-height: 550px;
     .ly-part-a-section {
+      img.ly-img-logo-section {
+        width: 50%;
+        margin-left: 80px;
+        margin-top: 0px;
+      }
       .ly-slide-caption {
         color: $black;
+        bottom: 100px;
         h2.ly-h2 {
-          padding-right: 183px!important;
+          padding-right: 37px!important;
+          padding-left: 90px!important;
           &:before {
-            width: 30px;
+            width: 80px;
             background-color: $black;
           }
           &:after {
-            width: 173px;
+            width: 155px;
+            right: -125px;
             background-color: $black;
           }
         }
-        button.ly-color-2 {
-          border: 2px solid $black;
+        P.ly-p-2 {
+          width: 387px;
+          padding-left: 90px!important;
+        }
+        button {
+          border: 2px solid $black!important;
           &:hover {
-            border: 2px solid lighten(black, 10%);
+            border: 2px solid lighten(black, 10%)!important;
           }
         }
       }
@@ -681,10 +711,11 @@ section.ly-section {
     .ly-part-b-section {
       img.ly-section-product-img {
         position: absolute;
-        height: 400px;
-        left: calc(50% - 260px);
-        top: -210px;
+        height: 500px;
+        right: 55px;
+        bottom: -290px;
         z-index: 2;
+        transform: rotate(90deg);
       }
     }
     &:after {
@@ -711,8 +742,8 @@ section#brands {
     position: absolute;
     right: 0px;
     top: 0px;
-    border-bottom: 40px solid rgba($black, 0.5);
-    border-left: 100vw solid transparent;
+    border-top: 40px solid rgba($black, 0.5);
+    border-right: 100vw solid transparent;
     height: 0;
     width: 0px;
   }
@@ -778,8 +809,7 @@ section#brands {
           text-decoration: none;
           article.ly-brand-item {
             .ly-brand {
-              width: 170px;
-              height: 170px;
+              margin-bottom: 30px;
             }
             h4.ly-brand-h4 {
               color: $white;
