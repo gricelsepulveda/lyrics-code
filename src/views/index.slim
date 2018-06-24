@@ -24,13 +24,14 @@ html lang="es"
     script src="js/smooth-scroll.min.js"
     /! SCRIPTS 
     script src="js/ly-scripts.min.js"
+    /! WAYPOINTS
+    script src="js/noframework.waypoints.min.js"
     /! INSTAGRAM
     script src="https://snapwidget.com/js/snapwidget.js"
     /! FAVICON
     link rel="icon" type="image/svg+xml" href="favicon.svg"
   body
     .ly-body-wrapper
-
       /! QUICKNAV
       nav.ly-quick-nav.flex.row.between
         .flex.row.start
@@ -68,6 +69,7 @@ html lang="es"
             span &
             span Tecnología
         ul.ly-banner-home
+          #diamond-trigger
           /! SLIDE #1
           li.ly-banner-home-slide.ly-home-slide-00
             img src="./assets/img/ly-home-slide-00.png" alt="rock"
@@ -99,11 +101,12 @@ html lang="es"
           h2.h2-article-home Instrumentos
         article.ly-article-home
           h2.h2-article-home 57 Pro Audio
-        article.ly-article-home
+        article.ly-article-home 
           h2.h2-article-home Tech / Macgarage
       
       /! SECTION LEFT
       section#diamond.ly-section.left.flex.row.between
+        #neumann-trigger
         .flex.row.start.ly-part-a-section
           img.ly-img-logo-section src="./assets/img/logo-diamond.png" alt="logo diamond"
           .ly-slide-caption
@@ -116,6 +119,7 @@ html lang="es"
       
       /! SECTION RIGHT
       section#neumann.ly-section.right.flex.row.between
+        #se-trigger
         .flex.row.center.ly-part-a-section
           img.ly-section-product-img src="./assets/img/neumann-microphone.gif" alt="neumann-microphone"
         .flex.row.end.ly-part-b-section
@@ -128,6 +132,7 @@ html lang="es"
         
       /! SECTION LEFT
       section#se-electronics.ly-section.left.flex.row.between
+        #glyph-trigger
         .flex.row.start.ly-part-a-section
           img.ly-img-logo-section src="./assets/img/se-logo.png" alt="logo se-electronics"
           .ly-slide-caption

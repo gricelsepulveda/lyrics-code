@@ -39,6 +39,7 @@ function scrollbody() {
 }
 
 $(document).ready(function () {
+  //MOBILE MENU
   $('button.ly-button-mob').click(function(){
     console.log('entre');
     if ($('nav.ly-main-nav .flex').hasClass('active')) {
@@ -51,4 +52,44 @@ $(document).ready(function () {
   $('nav.ly-main-nav .flex a').click(function(){
     $('nav.ly-main-nav .flex').removeClass('active');
   });
+
+  //TRIGGERS ANIMATIONS 
+  var home = new Waypoint({
+    element: document.getElementById('home-trigger'),
+    handler: function(direction) {
+      $('.ly-home-slide-00 img').addClass('active');
+      $('.ly-home-slide-00 img').addClass('active');
+    }
+  })
+  //TRIGGERS ANIMATIONS 
+  var diamond = new Waypoint({
+    element: document.getElementById('diamond-trigger'),
+    handler: function(direction) {
+      $('#diamond img.ly-img-logo-section').addClass('active');
+      $('#diamond img.ly-section-product-img').addClass('active');
+    }
+  })
+  var neumann = new Waypoint({
+    element: document.getElementById('neumann-trigger'),
+    handler: function(direction) {
+      $('#neumann i.ly-neumann').addClass('active');
+      $('#neumann img.ly-section-product-img').addClass('active');
+    }
+  })
+  var se = new Waypoint({
+    element: document.getElementById('se-trigger'),
+    handler: function(direction) {
+      $('#se-electronics img.ly-img-logo-section').addClass('active');
+      $('#se-electronics img.ly-section-product-img').addClass('active');
+    }
+  })
+  var glyph = new Waypoint({
+    element: document.getElementById('glyph-trigger'),
+    handler: function(direction) {
+      $('#glyph img.ly-img-logo-section').addClass('active');
+      $('#glyph img.ly-section-product-img').addClass('active');
+      $('#owc img.ly-img-logo-section').addClass('active');
+      $('#owc img.ly-section-product-img').addClass('active');
+    }
+  })
 });
