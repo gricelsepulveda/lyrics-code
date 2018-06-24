@@ -158,8 +158,20 @@ nav.ly-main-nav {
     }
   }
   > .flex.row.end {
+    @include animate;
     @media #{$sm}{
       display: none;
+      &.active {
+        display: flex;
+        position: fixed;
+        top: 81px;
+        background: black;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        left: 0px;
+      }
     }
   }
   a {
@@ -178,9 +190,23 @@ nav.ly-main-nav {
     border-right: 1px solid rgba($white, 0.25);
     color: $white;
     position: relative;
+    @include animate;
+    @media #{$sm}{
+      box-sizing: border-box;
+      border: 0;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      font-size: 18px;
+      text-align: center;
+      border-bottom: 1px solid rgba($white, 0.25);
+      width: 100%;
+    }
     &:last-of-type{
       border-right: 0px;
       padding-right: 0px;
+      @media #{$sm}{
+        padding-right: 20px;
+      }
     }
     &.active {
       &:after {
@@ -191,6 +217,9 @@ nav.ly-main-nav {
         bottom: -15px;
         left: 0px;
         background-color: $white;
+        @media #{$sm}{
+          bottom: 0px;
+        }
       }
     }
   }
@@ -368,7 +397,7 @@ section.ly-section-home {
         a.ly-a-button {
           margin-left: 30px;
           @media #{$md}{
-            margin-left: 0px;
+            margin-left: 20px;
           }
         }
       }
