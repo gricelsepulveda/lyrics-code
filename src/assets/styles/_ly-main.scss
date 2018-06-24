@@ -704,6 +704,9 @@ section.ly-section {
     }
     margin-bottom: 40px;
     z-index: 1;
+    @media #{$sm}{
+      padding-bottom: 100px;
+    }
     &:after {
       content:'';
       position: absolute;
@@ -713,6 +716,19 @@ section.ly-section {
       border-right: 100vw solid transparent;
       height: 0;
       width: 0px;
+      @media #{$sm}{
+        bottom: -20px;
+        border-top: 20px solid $color-3;
+      }
+    }
+    .ly-part-a-section {
+      img.ly-section-product-img{
+        @media #{$sm}{
+          height: 240px;
+          left: 10px;
+          bottom: -17px;
+        }
+      }
     }
     .ly-part-b-section {
       i.ly-neumann {
@@ -753,13 +769,18 @@ section.ly-section {
             }
           }
         }
-      }
-      p.ly-p-2{
-        max-width: 348px;
-        @media #{$sm}{
-          max-width: 200px;
-          padding-right: 0px!important;
-          text-align: right;
+        p.ly-p-2{
+          max-width: 348px;
+          @media #{$sm}{
+            max-width: 200px;
+            padding-right: 0px!important;
+            text-align: right;
+          }
+        }
+        a.ly-a-button {
+          @media #{$sm}{
+            margin-right: 0px;
+          }
         }
       }
     }
@@ -820,7 +841,9 @@ section.ly-section {
         }
         a.ly-a-button {
           @media #{$sm}{
-            margin-left: 90px;
+            display: inline-block;
+            margin-left: calc(50vw - 65px);
+            margin-top: 10px!important;
           }
         }
       }
@@ -865,7 +888,7 @@ section.ly-section {
         @media #{$sm}{
           height: 300px;
           left: 75px;
-          top: 0px;
+          top: 40px;
           bottom: 0px;
         }
       }
@@ -876,30 +899,62 @@ section.ly-section {
         margin-right: 80px;
         @media #{$sm}{
           width: 200px;
-          margin-right: 20px;
-          margin-top: 230px;
+          margin-right: calc(50vw - 100px);
+          margin-top: 260px;
           margin-bottom: 40px;
         }
       }
       .ly-slide-caption {
         width: 430px;
         color: $black;
+        @media #{$sm}{
+          width: 100vw;
+          display: block;
+          bottom: 90px;
+          right: 0px;
+        }
         h2.ly-h2 {
           padding-right: 80px!important;
           padding-left: 53px!important;
+          @media #{$sm}{
+            padding-right: 20px!important;
+            padding-left: 20px!important;
+            box-sizing: border-box!important;
+            text-align: center;
+            display: block;
+          }
           &:before {
             width: 44px;
             background-color: $black;
+            @media #{$sm}{
+              width: calc(50vw - 142px);
+              left: 0px;
+            }
           }
           &:after {
             width: 70px;
             background-color: $black;
+            @media #{$sm}{
+              width: calc(50vw - 142px);
+              right: 0px;
+            }
+          }
+        }
+        p.ly-p-2 {
+          @media #{$sm}{
+            padding-right: 20px!important;
+            padding-left: 20px!important;
+            text-align: center;
           }
         }
         button.ly-color-2 {
           border: 2px solid $black;
           &:hover {
             border: 2px solid lighten(black, 10%);
+          }
+          @media #{$sm}{
+            margin-right: 0px;
+            margin-left: calc(50vw - 58px);
           }
         }
       }
@@ -918,30 +973,74 @@ section.ly-section {
     min-height: 550px;
     max-height: 550px;
     .ly-part-a-section {
+      @media #{$sm}{
+        justify-content: flex-end;
+      }
       img.ly-img-logo-section {
         width: 50%;
         margin-left: 80px;
         margin-top: 0px;
+        @media #{$sm}{
+          width: 200px;
+          margin-top: -250px;
+          margin-left: calc(100vw - 240px);
+        }
       }
       .ly-slide-caption {
         color: $black;
         bottom: 100px;
+        @media #{$sm}{
+          bottom: inherit;
+          top: 100px;
+          right: 0px;
+          width: 300px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-end;
+        }
         h2.ly-h2 {
           padding-right: 37px!important;
           padding-left: 90px!important;
+          @media #{$sm}{
+            padding-left: 20px!important;
+            padding-right: 20px!important;
+            display: block;
+          }
           &:before {
             width: 80px;
             background-color: $black;
+            @media #{$sm}{
+              width: 50px;
+              right: 250px;
+              left: inherit;
+            }
           }
           &:after {
             width: 155px;
             right: -125px;
             background-color: $black;
+            @media #{$sm}{
+              width: 10px;
+              right: 0px;
+            }
           }
         }
         P.ly-p-2 {
           width: 387px;
           padding-left: 90px!important;
+          @media #{$sm}{
+            padding-left: 0!important;
+            width: 250px;
+            text-align: right;
+            padding-right: 20px!important;
+          }
+        }
+        a.ly-a-button{
+          @media #{$sm}{
+            margin-left: 0px;
+            margin-right: 20px;
+          }
         }
         button {
           border: 2px solid $black!important;
@@ -959,6 +1058,11 @@ section.ly-section {
         bottom: -290px;
         z-index: 2;
         transform: rotate(90deg);
+        @media #{$sm}{
+          height: 300px;
+          bottom: -268px;
+          right: 0px;
+        }
       }
     }
     &:after {
