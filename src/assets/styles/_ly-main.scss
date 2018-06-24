@@ -127,6 +127,9 @@ nav.ly-main-nav {
     font-size: 180px;
     font-style: normal;
     color: $white;
+    @media #{$md}{
+      font-size: 165px;
+    }
   }
   button.ly-button-mob {
     width: 32px;
@@ -311,6 +314,12 @@ section.ly-section-home {
             bottom: 0px!important;
             top: inherit;
           }
+          @media #{$md}{
+            height: 100%;
+            width: auto;
+            bottom: 0px;
+            top: inherit;
+          }
         }
       }
       .ly-slide-caption {
@@ -358,6 +367,9 @@ section.ly-section-home {
         }
         a.ly-a-button {
           margin-left: 30px;
+          @media #{$md}{
+            margin-left: 0px;
+          }
         }
       }
     }
@@ -729,6 +741,10 @@ section.ly-section {
           left: 10px;
           bottom: -17px;
         }
+        @media #{$md}{
+          height: 400px;
+          bottom: -40px;
+        }
       }
     }
     .ly-part-b-section {
@@ -739,6 +755,11 @@ section.ly-section {
           font-size: 126px;
           margin-bottom: 80px;
         }
+        @media #{$md}{
+          margin-top: 0px;
+          padding-top: 200px;
+          padding-bottom: 100px;
+        }
       }
       .ly-slide-caption {
         width: 430px;
@@ -746,6 +767,9 @@ section.ly-section {
           width: 224px;
           right: 20px;
           bottom: 100px;
+        }
+        @media #{$md}{
+          bottom: 200px;
         }
         h2.ly-h2 {
           padding-right: 80px!important;
@@ -803,6 +827,9 @@ section.ly-section {
           width: 200px;
           margin-left: calc(50vw - 90px);
           margin-bottom: 40px;
+        }
+        @media #{$md}{
+          margin-bottom: 0px;
         }
       }
       .ly-slide-caption {
@@ -862,6 +889,11 @@ section.ly-section {
           right: calc(50vw - 140px);
           top: -235px;
         }
+        @media #{$md}{
+          height: 280px;
+          right: 0px;
+          left: inherit;
+        }
       }
     }
     &:after {
@@ -892,6 +924,11 @@ section.ly-section {
           top: 40px;
           bottom: 0px;
         }
+        @media #{$md}{
+          height: 500px;
+          top: 260px;
+          left: 129px;
+        }
       }
     }
     .ly-part-b-section {
@@ -904,6 +941,10 @@ section.ly-section {
           margin-top: 260px;
           margin-bottom: 40px;
         }
+        @media #{$md}{
+          margin-top: 100px;
+          padding-bottom: 120px;
+        }
       }
       .ly-slide-caption {
         width: 430px;
@@ -913,6 +954,9 @@ section.ly-section {
           display: block;
           bottom: 90px;
           right: 0px;
+        }
+        @media #{$md}{
+          bottom: 220px;
         }
         h2.ly-h2 {
           padding-right: 80px!important;
@@ -1000,6 +1044,9 @@ section.ly-section {
           justify-content: flex-start;
           align-items: flex-end;
         }
+        @media #{$md}{
+          bottom: 210px;
+        }
         h2.ly-h2 {
           padding-right: 37px!important;
           padding-left: 90px!important;
@@ -1063,6 +1110,11 @@ section.ly-section {
           height: 300px;
           bottom: -268px;
           right: 0px;
+        }
+        @media #{$md}{
+          height: 350px;
+          right: 38px;
+          bottom: -274px;
         }
       }
     }
