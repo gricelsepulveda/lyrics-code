@@ -18,14 +18,6 @@ body {
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
-#home-trigger{
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  left: 0px;
-  bottom: 0px;
-  background: red;
-}
 
 .ly-body-wrapper {
   max-width: 1600px;
@@ -254,6 +246,9 @@ section.ly-section-home {
     height: 550px;
   }
   @include ly-common-bg;
+  &:before {
+    @include noise-bg;
+  }
   &:after {
     position: absolute;
     right: 0px;
@@ -345,12 +340,7 @@ section.ly-section-home {
           width: 100%;
           height: auto;
           top: -10%;
-          left: 0px; 
-          opacity: 0!important;
-          @include move;
-          &.active {
-            opacity: 1!important;
-          }
+          left: 0px;
           @media #{$sm}{
             height: 100%;
             width: auto;
@@ -409,7 +399,7 @@ section.ly-section-home {
           }
         }
         a.ly-a-button {
-          margin-left: 30px;
+          margin-left: 0px;
           @media #{$md}{
             margin-left: 20px;
           }
@@ -674,12 +664,8 @@ section.ly-section {
       size: cover;
       image: url(../img/bg-red.jpg);
     }
-    #neumann-trigger {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
+    &:before {
+      @include noise-bg;
     }
     .ly-part-a-section {
       img {
@@ -792,6 +778,9 @@ section.ly-section {
       position: absolute;
       bottom: 0px;
       left: 0px;
+    }
+    &:before {
+      @include noise-bg;
     }
     &:after {
       content:'';
@@ -913,6 +902,9 @@ section.ly-section {
       position: absolute;
       bottom: 0px;
       left: 0px;
+    }
+    &:before {
+      @include noise-bg;
     }
     .ly-part-a-section {
       img.ly-img-logo-section {
@@ -1286,6 +1278,9 @@ section#brands {
       border-top: 20px solid rgba($black, 0.5);
     }
   }
+  &:after {
+    @include noise-bg;
+  }
   h3.ly-section-brands-h3 {
     @include clean-webkit;
     @include zero-hard;
@@ -1360,8 +1355,22 @@ section#brands {
       padding-right: 20px!important;
       box-sizing: border-box;
     }
+    @include flex-row-center;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 530px;
+    overflow: hidden;
+    @media #{$sm}{
+      width: 265px;
+      height: 136px;
+      flex-wrap: wrap;
+    }
     li.ly-slide-brand-rotator {
       width: 100%;
+      box-sizing: border-box;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-left: 0px!important;
       a {
         display: inline-block;
         margin-right: 40px;
@@ -1483,6 +1492,9 @@ section#social {
       display: none;
     }
   }
+  &:after {
+    @include noise-bg;
+  }
   .ly-section-social-instagram {
     margin-top: 60px;
     width: 450px;
@@ -1591,5 +1603,70 @@ footer#footer.ly-footer {
         }
       }
     }
+  }
+}
+
+//ANIMATION TRIGGERS
+
+#diamond-trigger, #neumann-trigger, #se-trigger, #glyph-trigger{
+  display: inline-block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 0px;
+  z-index: 200;
+}
+
+#diamond-trigger{
+  background-color: purple;
+  top: -300px;
+}
+
+#neumann-trigger{
+  background-color: skyblue;
+  top: -240px;
+}
+
+#se-trigger{
+  background-color: pink;
+  top: -900px;
+}
+
+
+#glyph-trigger{
+  background-color: greenyellow;
+  top: -900px;
+}
+
+@keyframes noise {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  10% {
+    background-position: -5% -10%;
+  }
+  20% {
+      background-position: -15% 5%;
+  }
+  30% {
+    background-position: 7% -25%;
+  }
+  40% {
+    background-position: 20% 25%;
+  }
+  50% {
+    background-position: -25% 10%;
+  }
+  60% {
+    background-position: 15% 5%;
+  }
+  70% {
+      background-position: 0% 15%;
+  }
+  80% {
+    background-position: 25% 35%;
+  }
+  90% {
+    background-position: -10% 10%;
   }
 }
