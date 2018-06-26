@@ -59,6 +59,7 @@ $(document).ready(function () {
     handler: function() {
       $('#diamond img.ly-img-logo-section').addClass('active');
       $('#diamond img.ly-section-product-img').addClass('active');
+      this.destroy();
     }
   });
   var neumann = new Waypoint({
@@ -66,6 +67,7 @@ $(document).ready(function () {
     handler: function() {
       $('#neumann i.ly-neumann').addClass('active');
       $('#neumann img.ly-section-product-img').addClass('active');
+      this.destroy();
     }
   });
   var se = new Waypoint({
@@ -73,6 +75,7 @@ $(document).ready(function () {
     handler: function() {
       $('#se-electronics img.ly-img-logo-section').addClass('active');
       $('#se-electronics img.ly-section-product-img').addClass('active');
+      this.destroy();
     }
   });
   var glyph = new Waypoint({
@@ -82,6 +85,7 @@ $(document).ready(function () {
       $('#glyph img.ly-section-product-img').addClass('active');
       $('#owc img.ly-img-logo-section').addClass('active');
       $('#owc img.ly-section-product-img').addClass('active');
+      this.destroy();
     }
   });
 
@@ -95,12 +99,21 @@ $(document).ready(function () {
     
     setInterval(function(){
       if ( element.offsetLeft = 0 || element.offsetLeft != times){
-        element.style.marginLeft = element.offsetLeft - 530 + 'px';
+        //AVOID WEIRD NUMBERS OUTSIDE RANGE WHEN USER CLICKS SLIDER NAVIGATION BUTTONS BETWEEN CYCLES
+        if ( element.offsetLeft = 0 || element.offsetLeft % 530 == 0){
+          element.style.marginLeft = element.offsetLeft - 530 + 'px';
+        }
+        else {  
+        }
       }
       else {
         element.style.marginLeft = 0 + 'px';
       }
     }, 2000)  
   }
-
+  $('.ly-rotator-brand-button').click(function(){
+    var clicked = $(this).index();
+    var element = document.getElementsByClassName('ly-slide-brand-rotator')[0];
+    element.style.marginLeft = clicked * -530 + 'px';
+  })
 });
