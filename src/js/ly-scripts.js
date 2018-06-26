@@ -86,15 +86,21 @@ $(document).ready(function () {
   });
 
   //BANNER MARCAS
- 
-  function moveBrands(){
-    var vueltas = document.getElementById('ly-brands-rotator-ul').childNodes.length - 1;
-    var manipulator =   document.getElementById('ly-brands-rotator-ul').childNodes[0];
-    console.log(manipulator.style.marginLeft);
-    manipulator.style.marginLeft = '-'+ -100 +'%';
-    console.log(manipulator.style.marginLeft);
+  if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.outerWidth < 480 ) {
   }
-
-  setInterval(moveBrands, 5000);
+  else {
+    var slides = document.getElementsByClassName('ly-brands-rotator')[0].childNodes.length - 1;
+    var times = slides * -530;
+    var element = document.getElementsByClassName('ly-slide-brand-rotator')[0];
+    
+    setInterval(function(){
+      if ( element.offsetLeft = 0 || element.offsetLeft != times){
+        element.style.marginLeft = element.offsetLeft - 530 + 'px';
+      }
+      else {
+        element.style.marginLeft = 0 + 'px';
+      }
+    }, 2000)  
+  }
 
 });
