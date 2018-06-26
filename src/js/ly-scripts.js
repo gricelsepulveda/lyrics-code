@@ -102,16 +102,25 @@ $(document).ready(function () {
         //AVOID WEIRD NUMBERS OUTSIDE RANGE WHEN USER CLICKS SLIDER NAVIGATION BUTTONS BETWEEN CYCLES
         if ( element.offsetLeft = 0 || element.offsetLeft % 530 == 0){
           element.style.marginLeft = element.offsetLeft - 530 + 'px';
+          var indicator = Math.abs(element.offsetLeft / 530) + 1; 
+          var buttons = document.getElementsByClassName('ly-rotator-brand-button');
+          $('.ly-rotator-brand-button').removeClass('active');
+          $(buttons[indicator]).addClass('active');
         }
         else {  
         }
       }
       else {
         element.style.marginLeft = 0 + 'px';
+        var buttons = document.getElementsByClassName('ly-rotator-brand-button');
+        $('.ly-rotator-brand-button').removeClass('active');
+        $(buttons[0]).addClass('active');
       }
     }, 2000)  
   }
   $('.ly-rotator-brand-button').click(function(){
+    $('.ly-rotator-brand-button').removeClass('active');
+    $(this).addClass('active');
     var clicked = $(this).index();
     var element = document.getElementsByClassName('ly-slide-brand-rotator')[0];
     element.style.marginLeft = clicked * -530 + 'px';

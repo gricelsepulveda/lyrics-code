@@ -18,6 +18,11 @@ body {
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
+button, a {
+  &:focus, &:active{
+    outline: 0!important;
+  }
+}
 
 .ly-body-wrapper {
   max-width: 1600px;
@@ -46,7 +51,7 @@ nav.ly-quick-nav{
   }
   @media #{$xl}{
     width: 1600px;
-    left: calc(50vw - 800px);
+    left: calc(50vw - 804px);
   }
   a {
     @include flex-row-center;
@@ -121,14 +126,14 @@ nav.ly-main-nav {
   }
   @media #{$xl}{
     width: 1600px;
-    left: calc(50vw - 800px);
+    left: calc(50vw - 804px);
   }
   i.ly-lyrics-logo {
     font-family: 'lyrics-font'!important;
     font-size: 180px;
     font-style: normal;
     color: $white;
-    @media #{$md}{
+    @media #{$md-abs}{
       font-size: 165px;
     }
   }
@@ -347,7 +352,7 @@ section.ly-section-home {
             bottom: 0px!important;
             top: inherit;
           }
-          @media #{$md}{
+          @media #{$md-abs}{
             height: 100%;
             width: auto;
             bottom: 0px;
@@ -400,7 +405,7 @@ section.ly-section-home {
         }
         a.ly-a-button {
           margin-left: 0px;
-          @media #{$md}{
+          @media #{$md-abs}{
             margin-left: 20px;
           }
         }
@@ -805,7 +810,7 @@ section.ly-section {
           height: 240px;
           bottom: -17px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           height: 400px;
           bottom: -40px;
         }
@@ -828,7 +833,7 @@ section.ly-section {
           font-size: 126px;
           margin-bottom: 80px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           margin-top: 0px;
           padding-top: 200px;
           padding-bottom: 100px;
@@ -844,7 +849,7 @@ section.ly-section {
           right: 20px;
           bottom: 100px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           bottom: 200px;
         }
         h2.ly-h2 {
@@ -917,7 +922,7 @@ section.ly-section {
           margin-left: calc(50vw - 90px);
           margin-bottom: 40px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           margin-bottom: 0px;
         }
         &.active {
@@ -988,7 +993,7 @@ section.ly-section {
           right: calc(50vw - 140px);
           top: -235px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           height: 280px;
           right: 0px;
           left: inherit;
@@ -1029,7 +1034,7 @@ section.ly-section {
           top: 40px;
           bottom: 0px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           height: 500px;
           top: 260px;
           left: 129px;
@@ -1054,7 +1059,7 @@ section.ly-section {
           margin-top: 260px;
           margin-bottom: 40px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           margin-top: 100px;
           padding-bottom: 120px;
         }
@@ -1068,7 +1073,7 @@ section.ly-section {
           bottom: 90px;
           right: 0px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           bottom: 220px;
         }
         h2.ly-h2 {
@@ -1162,7 +1167,7 @@ section.ly-section {
           justify-content: flex-start;
           align-items: flex-end;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           bottom: 210px;
         }
         h2.ly-h2 {
@@ -1231,7 +1236,7 @@ section.ly-section {
           bottom: -268px;
           right: 0px;
         }
-        @media #{$md}{
+        @media #{$md-abs}{
           height: 350px;
           right: 38px;
           bottom: -274px;
@@ -1261,9 +1266,7 @@ section#brands {
   position: relative;
   z-index: 0;
   @media #{$sm}{
-    height: 500px;
-    max-height: 500px;
-    min-height: 500px;
+    min-height: 900px;
   }
   &:before {
     content:'';
@@ -1362,7 +1365,6 @@ section#brands {
     overflow: hidden;
     @media #{$sm}{
       width: 265px;
-      height: 136px;
       flex-wrap: wrap;
     }
     li.ly-slide-brand-rotator {
@@ -1405,14 +1407,22 @@ section#brands {
             width: 150px;
             height: 150px;
             background: {
-              color: $white;
+              color: white;
               size: 60%;
               repeat: no-repeat;
               position: center;
             }
+            overflow: hidden;
+            position: relative;
             border-radius: 100%;
             margin-bottom: 20px;
+            line-height: 100%;
+            text-align: center;
             @include animate;
+            @include flex-row-center;
+            img {
+              width: 60%;
+            }
             @media #{$sm}{
               margin-bottom: 0px;
               width: 75px;
@@ -1444,6 +1454,9 @@ section#brands {
     position: absolute;
     left: calc(50% - 65px);
     bottom: 30px;
+    @media #{$sm}{
+      display: none;
+    }
     button.ly-rotator-brand-button{
       width: 30px;
       height: 30px;
@@ -1459,10 +1472,6 @@ section#brands {
       &:hover, &.active {
         border: 2px solid lighten($color-1, 10%);
         background: rgba($white, 0.25);
-      }
-      @media #{$sm}{
-        width: 28px;
-        height: 28px;
       }
     }
   }
@@ -1621,24 +1630,24 @@ footer#footer.ly-footer {
 }
 
 #diamond-trigger{
-  background-color: purple;
-  top: -300px;
+  background-color: transparent;
+  top: -350px;
 }
 
 #neumann-trigger{
-  background-color: skyblue;
-  top: -240px;
+  background-color: transparent;
+  top: -350px;
 }
 
 #se-trigger{
-  background-color: pink;
-  top: -300px;
+  background-color: transparent;
+  top: -350px;
 }
 
 
 #glyph-trigger{
-  background-color: greenyellow;
-  top: -300px;
+  background-color: transparent;
+  top: -350px;
 }
 
 @keyframes noise {
