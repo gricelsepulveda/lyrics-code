@@ -362,42 +362,25 @@ section.ly-section-home {
       }
       .ly-slide-caption {
         bottom: 60px;
-        right: 0px;
+        right: calc(50vw - 175px);
         width: 350px;
+        @include flex-col-center;
         @media #{$sm}{
-          left: 0px;
+          right: calc(50vw - 175px);
           bottom: 100px;
         }
         h2.ly-h2 {
           @include clean-webkit;
-          padding-left: 50px!important;
-          padding-right: 165px!important;
-          @media #{$sm}{
-            padding-left: 30px!important;
-          }
-          &:before {
-            width: 40px;
-            left: 0px;
-            top: 18px;
-            @media #{$sm}{
-              width: 20px;
-            }
-          }
-          &:after {
-            content: '';
-            width: 155px;
-            right: 0px;
-            top: 18px;
-            @media #{$sm}{
-              width: 85px;
-              left: 174px;
-            }
-          }
+          text-align: center;
+          padding-bottom: 10px!important;
+          border-bottom: 2px solid $white;
+          margin-bottom: 20px!important;
+          width: 100%; 
         }
         p.ly-p-2 {
-          padding-right: 80px!important;
+          text-align: center;
           @media #{$sm}{
-            padding-left: 30px!important;
+            padding-left: 20px!important;
             padding-right: 20px!important;
             max-width: 80%!important;
             box-sizing: border-box;
@@ -1452,7 +1435,7 @@ section#brands {
   }
   nav.ly-rotator-brand-controls {
     position: absolute;
-    left: calc(50% - 65px);
+    left: calc(50% - 290px);
     bottom: 30px;
     @media #{$sm}{
       display: none;
